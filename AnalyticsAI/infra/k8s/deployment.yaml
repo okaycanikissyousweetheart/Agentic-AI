@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analyticsai-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: analyticsai-backend
+  template:
+    metadata:
+      labels:
+        app: analyticsai-backend
+    spec:
+      containers:
+        - name: backend
+          image: agentic-ai/analyticsai-backend:latest
+          ports:
+            - containerPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analyticsai-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: analyticsai-frontend
+  template:
+    metadata:
+      labels:
+        app: analyticsai-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: agentic-ai/analyticsai-frontend:latest
+          ports:
+            - containerPort: 3000

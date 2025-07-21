@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+duckdb
+openai
+python-dotenv
+requests
